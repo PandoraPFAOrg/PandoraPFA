@@ -53,6 +53,19 @@ list(APPEND COMMON_CMAKE_ARGS
     "-DCMAKE_INSTALL_LIBDIR:STRING=lib"
 )
 
+# Forward user provided CMake cache variables to the external projects, excluding internal and generator variables.
+get_cmake_property(_cache_vars CACHE_VARIABLES)
+
+foreach(_var ${_cache_vars})
+    if(
+        # Only forward user / project-level variables
+        NOT _var MATCHES "^CMAKE_" AND
+        NOT _var MATCHES "_INTERNAL$"
+    )
+        list(APPEND COMMON_CMAKE_ARGS "-D${_var}:STRING=${${_var}}")
+    endif()
+endforeach()
+
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # External Projects Definition
 include(ExternalProject)
