@@ -26,9 +26,9 @@ MACRO( PANDORA_GENERATE_PACKAGE_CONFIGURATION_FILES )
             ENDIF( EXISTS "${PROJECT_SOURCE_DIR}/cmake/${arg}.in" )
         ENDIF()
 
-        IF( ${arg} MATCHES "LibDeps.cmake" )
-            EXPORT_LIBRARY_DEPENDENCIES( "${arg}" )
-            INSTALL( FILES "${PROJECT_BINARY_DIR}/${arg}" DESTINATION lib/cmake )
+        IF (${arg} MATCHES "LibDeps.cmake")
+            # Deprecated in modern CMake (CMP0033) — no replacement needed
+            message(STATUS "Skipping deprecated export_library_dependencies for ${arg}")
         ENDIF()
 
     ENDFOREACH()
