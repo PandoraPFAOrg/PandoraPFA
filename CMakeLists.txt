@@ -21,11 +21,12 @@ message(STATUS "All dependencies will be built and installed into: ${STAGING_INS
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # External project versions and repository locations
-set(GIT_REPOSITORY_ROOT "https://github.com/PandoraPFA")
-
-set(PANDORA_SDK_VERSION "origin/master")
-set(PANDORA_MONITORING_VERSION "origin/master")
-set(LAR_CONTENT_VERSION "origin/master")
+set(GIT_USER "PandoraPFAOrg" CACHE STRING "Git user name")
+set(GIT_REPOSITORY_ROOT "https://github.com/${GIT_USER}" CACHE STRING "Git URL")
+message(STATUS "URL: ${GIT_REPOSITORY_ROOT}")
+set(PANDORA_SDK_VERSION "origin/master" CACHE STRING "Git ref (branch/tag/SHA) for PandoraSDK")
+set(PANDORA_MONITORING_VERSION "origin/master" CACHE STRING "Git ref (branch/tag/SHA) for PandoraMonitoring")
+set(LAR_CONTENT_VERSION "origin/master" CACHE STRING "Git ref (branch/tag/SHA) for LArContent")
 set(EIGEN3_VERSION "3.4.0")
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
