@@ -2,7 +2,7 @@
 #-------------------------------------------------------------------------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 
-project(PandoraPFA VERSION 05.03.00 LANGUAGES CXX)
+project(PandoraPFA VERSION 05.04.00 LANGUAGES CXX)
 
 # Enforce out-of-source builds.
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
